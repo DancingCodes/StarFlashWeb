@@ -1,0 +1,8 @@
+html {
+    font-family: 'MaShanZheng-Regular';
+}
+
+@font-face {
+    font-family: 'MaShanZheng-Regular';
+    src: url('@/assets/fonts/MaShanZheng-Regular.ttf');
+}
