@@ -16,27 +16,18 @@
         </div>
         <div class="title">信息通知</div>
         <div class="messageList">
-            <el-scrollbar class="scrollbar">
-                <div v-infinite-scroll="abc" :infinite-scroll-immediate="false" :infinite-scroll-distance="200">
-                    <div class="message">
-                        <div class="content">张三收藏了您的文章</div>
-                        <div class="time">2022-12-27 10:00:00</div>
-                    </div>
-                    <div class="message">
-                        <div class="content">张三收藏了您的文章</div>
-                        <div class="time">2022-12-27 10:00:00</div>
-                    </div>
-                </div>
-            </el-scrollbar>
+            <userArticleMessage />
         </div>
     </div>
 </template>
 
 <script setup>
+import userArticleMessage from '@/views/userArticleMessage/index.vue'
+
 import { useRouter } from "vue-router";
 const router = useRouter()
 
-import { logoff, getArticleMessage } from '@/api/user'
+import { logoff } from '@/api/user'
 import { useUserData } from '@/store/useUserData'
 const userData = useUserData()
 import { useLoginDialog } from '@/store/useLoginDialog'
@@ -62,15 +53,6 @@ const passwordModify = async () => {
     loginDialog.setDialogType('2')
     loginDialog.setDialogState(true)
 }
-
-const abc = () => {
-    console.log(1)
-}
-
-getArticleMessage({
-    pageNo: 1,
-    pageSize: 10
-})
 </script>
 
 <style lang="scss" scoped>
@@ -122,23 +104,6 @@ getArticleMessage({
     .messageList {
         flex: 1;
         overflow: hidden;
-
-        .scrollbar {
-
-            // 解决父级flex:1时，滚动条默认不显示的问题 
-            :deep(.el-scrollbar__view) {
-                height: 100%;
-            }
-
-            .message {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 10px 0;
-            }
-        }
-
-
     }
 }
 </style>
