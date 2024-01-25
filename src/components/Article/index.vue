@@ -22,6 +22,9 @@
 </template>
 
 <script setup>
+import { useRoute } from "vue-router";
+const route = useRoute()
+
 import { collectArticle, cancelCollectArticle } from '@/api/user'
 import { removeArticle } from '@/api/article'
 import collect from "@/assets/images/article/collect.png"
@@ -35,6 +38,9 @@ const writeArticleDialog = useWriteArticleDialog()
 
 import { useRefetchUserArticleList } from '@/store/useRefetchUserArticleList'
 const refetchUserArticleList = useRefetchUserArticleList()
+
+import { useRefetchUserCollectList } from '@/store/useRefetchUserCollectList'
+const refetchUserCollectList = useRefetchUserCollectList()
 
 const prop = defineProps({
     article: {
@@ -61,11 +67,15 @@ const articleCollect = async (article) => {
 const articleCancelCollect = async (article) => {
     try {
         await cancelCollectArticle(article)
+        article.isCollect = false
+
+        // 如果在我的收藏页面取消收藏文章,那么重新获取收藏文章列表
+        if (route.fullPath === '/user/userCollect') {
+            refetchUserCollectList.setShouldRefetchState(true)
+        }
     } catch (error) {
         console.log(error)
-
     }
-    article.isCollect = false
 }
 
 const articleRemove = async ({ articleId }) => {

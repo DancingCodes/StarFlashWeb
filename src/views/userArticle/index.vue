@@ -44,11 +44,11 @@ const addArticleList = () => {
 
 
 import { useRefetchUserArticleList } from '@/store/useRefetchUserArticleList'
-const refetchArticleList = useRefetchUserArticleList()
-watch(() => refetchArticleList.shouldRefetchState, (newValue) => {
+const refetchUserArticleList = useRefetchUserArticleList()
+watch(() => refetchUserArticleList.shouldRefetchState, (newValue) => {
     if (newValue) {
         initArticleList()
-        refetchArticleList.setShouldRefetchState(false)
+        refetchUserArticleList.setShouldRefetchState(false)
     }
 })
 

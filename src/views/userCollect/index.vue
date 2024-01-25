@@ -4,7 +4,7 @@
 
 <script setup>
 import { getCollectArticleList } from '@/api/user'
-import { reactive } from "vue";
+import { reactive, watch } from "vue";
 
 const initArticleListData = {
     pageNo: 1,
@@ -39,6 +39,15 @@ const addArticleList = () => {
         setArticleList()
     }
 }
+
+import { useRefetchUserCollectList } from '@/store/useRefetchUserCollectList'
+const refetchUserCollectList = useRefetchUserCollectList()
+watch(() => refetchUserCollectList.shouldRefetchState, (newValue) => {
+    if (newValue) {
+        initArticleList()
+        refetchUserCollectList.setShouldRefetchState(false)
+    }
+})
 
 </script>
 
