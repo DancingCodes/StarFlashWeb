@@ -1,5 +1,5 @@
 <template>
-    <ArticleList :articleList="articleList.list" @addArticleList="addArticleList" class="userCollect" />
+    <ArticleList :articleList="articleList.list" @addArticleList="addArticleList" collectTimeShow class="userCollect" />
 </template>
 
 <script setup>

@@ -7,6 +7,8 @@
             </div>
             <span class="ArticleTime">{{ article.createTime }}</span>
         </div>
+        <div class="collectTime" v-if="collectTimeShow">收藏时间：{{ article.collectTime }}</div>
+
         <div class="bodyer">
             <span class="articleContent">
                 {{ article.articleContent }}
@@ -53,7 +55,11 @@ const prop = defineProps({
     modifyShow: {
         type: Boolean,
         default: false
-    }
+    },
+    collectTimeShow: {
+        type: Boolean,
+        default: false
+    },
 })
 
 const articleCollect = async (article) => {
@@ -122,6 +128,10 @@ const articleModify = async ({ articleId }) => {
         .ArticleTime {
             font-size: 16px;
         }
+    }
+
+    .collectTime {
+        text-align: right;
     }
 
     .bodyer {

@@ -4,7 +4,7 @@
             <div class="articleList" v-infinite-scroll="infiniteCcroll" :infinite-scroll-immediate="false"
                 :infinite-scroll-distance="100">
                 <Article v-for="item in articleList" :article="item" :removeShow="removeShow" :modifyShow="removeShow"
-                    class="Article" />
+                    :collectTimeShow="collectTimeShow" class="Article" />
             </div>
         </el-scrollbar>
         <Empty v-else />
@@ -25,6 +25,10 @@ const prop = defineProps({
         default: false
     },
     modifyShow: {
+        type: Boolean,
+        default: false
+    },
+    collectTimeShow: {
         type: Boolean,
         default: false
     }
