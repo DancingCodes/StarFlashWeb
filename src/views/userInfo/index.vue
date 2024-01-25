@@ -36,7 +36,7 @@
 import { useRouter } from "vue-router";
 const router = useRouter()
 
-import { logoff } from '@/api/user'
+import { logoff, getArticleMessage } from '@/api/user'
 import { useUserData } from '@/store/useUserData'
 const userData = useUserData()
 import { useLoginDialog } from '@/store/useLoginDialog'
@@ -66,6 +66,11 @@ const passwordModify = async () => {
 const abc = () => {
     console.log(1)
 }
+
+getArticleMessage({
+    pageNo: 1,
+    pageSize: 10
+})
 </script>
 
 <style lang="scss" scoped>

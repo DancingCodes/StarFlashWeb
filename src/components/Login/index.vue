@@ -59,21 +59,29 @@
 </template>
 
 <script setup>
-import { useUserData } from '@/store/useUserData'
-const userData = useUserData()
 import { useRouter } from "vue-router";
 const router = useRouter()
-const goUserInfo = () => {
-    router.push('/user')
-}
+
+
+import { useUserData } from '@/store/useUserData'
+const userData = useUserData()
+
 
 import { useLoginDialog } from '@/store/useLoginDialog'
 const loginDialog = useLoginDialog()
+
+
+import { useRefetchArticleList } from '@/store/useRefetchArticleList'
+const refetchArticleList = useRefetchArticleList()
 
 import { reactive, ref } from 'vue'
 import { signUp, login, info, modifyInfo, modifyPassword } from '@/api/user'
 import UploadImage from '@/components/UploadImage/index.vue'
 
+
+const goUserInfo = () => {
+    router.push('/user')
+}
 
 const openDialog = async () => {
     if (loginDialog.dialogType === '1' || loginDialog.dialogType === '2') {
@@ -153,6 +161,11 @@ const submitForm = async (formEl) => {
                 }
                 getUserInfo()
                 loginDialog.setDialogState(false)
+
+                if (loginDialog.dialogType === '0') {
+                    refetchArticleList.setShouldRefetchState(true)
+                }
+
             } catch (error) {
                 console.log(error)
             }

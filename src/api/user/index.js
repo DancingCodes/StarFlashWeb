@@ -20,5 +20,4 @@ export const collectArticle = (data) => request.put('/user/collectArticle', data
 
 export const cancelCollectArticle = (data) => request.put('/user/cancelCollectArticle', data)
 
-
-
+export const getArticleMessage = (params) => request.get('/user/getArticleMessage', { params })

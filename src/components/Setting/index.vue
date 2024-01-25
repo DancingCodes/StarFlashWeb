@@ -53,6 +53,9 @@ import changeDarkMode from '@/utils/changeDarkMode'
 import { useUserData } from '@/store/useUserData'
 const userData = useUserData()
 
+import { useRefetchArticleList } from '@/store/useRefetchArticleList'
+const refetchArticleList = useRefetchArticleList()
+
 const toggleDarkMode = () => {
     toggleDark()
     changeDarkMode(isDark.value)
@@ -75,6 +78,7 @@ const logOutUser = () => {
     userData.logOut()
     localStorage.removeItem('token');
     router.push('/')
+    refetchArticleList.setShouldRefetchState(true)
 }
 
 </script>
