@@ -1,5 +1,5 @@
 <template>
-    <el-scrollbar class="scrollbar">
+    <el-scrollbar class="scrollbar" v-if="articleMessageList.list.length">
         <div v-infinite-scroll="addArticleMessageList" :infinite-scroll-immediate="false" :infinite-scroll-distance="200">
             <div class="message" v-for="item in articleMessageList.list">
                 <div class="content">{{ item.initiatorName }}{{ item.content }}:{{ item.articleContent }}</div>
@@ -7,9 +7,11 @@
             </div>
         </div>
     </el-scrollbar>
+    <Empty v-else />
 </template>
 
 <script setup>
+import Empty from "@/components/Empty/index.vue";
 import { getArticleMessage } from '@/api/user'
 import { reactive } from "vue";
 
