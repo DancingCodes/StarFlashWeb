@@ -132,6 +132,7 @@ const articleModify = async ({ articleId }) => {
 
     .collectTime {
         text-align: right;
+        color: #9196a1;
     }
 
     .bodyer {

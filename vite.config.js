@@ -14,6 +14,8 @@ import IconsResolver from 'unplugin-icons/resolver'
 // https://vitejs.dev/config/
 export default defineConfig({
   server: {
+    // 开启局域网访问
+    host: '0.0.0.0',
     proxy: {
       '/dev-api': {
         target: 'http://localhost:3000',   // 本地服务器
