@@ -14,6 +14,9 @@
                     <component :is="Component" />
                 </transition>
             </router-view>
+            <div class="right">
+                <a href="https://beian.miit.gov.cn/" target="_blank" class="filingsCodes">鲁ICP备2024059990号</a>
+            </div>
         </div>
     </div>
 </template>
@@ -56,6 +59,23 @@ const goArticleList = () => {
     .bodyer {
         flex: 1;
         overflow: hidden;
+        position: relative;
+
+
+        .right {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 20%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+
+            .filingsCodes {
+                text-decoration: none;
+            }
+        }
     }
 }
 </style>
