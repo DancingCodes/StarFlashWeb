@@ -1,6 +1,9 @@
 <template>
     <div class="home" v-if="articleList.list.length">
         <ArticleList :articleList="articleList.list" @addArticleList="addArticleList" class="ArticleList" />
+        <div class="right">
+            <a href="https://beian.miit.gov.cn/" target="_blank" class="filingsCodes">鲁ICP备2024059990号</a>
+        </div>
     </div>
 </template>
 
@@ -61,10 +64,26 @@ watch(() => refetchArticleList.shouldRefetchState, (newValue) => {
 <style lang="scss" scoped>
 .home {
     height: 100%;
+    position: relative;
 
     .ArticleList {
         padding: 20px 20% 0;
         box-sizing: border-box;
+    }
+
+    .right {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 20%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+
+        .filingsCodes {
+            text-decoration: none;
+        }
     }
 }
 </style>
