@@ -1,7 +1,7 @@
 <template>
     <div class="Main">
         <div class="header">
-            <el-image :src="star" class="icon" @click="goArticleList" />
+            <el-image :src="star" class="icon" @click="goHome" />
             <div class="headerRight">
                 <WriteArticle />
                 <Login />
@@ -25,7 +25,7 @@ import Login from '@/components/Login/index.vue'
 import Setting from '@/components/Setting/index.vue'
 import { useRouter } from "vue-router";
 const router = useRouter()
-const goArticleList = () => {
+const goHome = () => {
     router.push('/')
 }
 </script>
@@ -45,6 +45,7 @@ const goArticleList = () => {
 
         .icon {
             height: 50px;
+            cursor: pointer;
         }
 
         .headerRight {

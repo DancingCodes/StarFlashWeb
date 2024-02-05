@@ -86,6 +86,7 @@ const logOutUser = () => {
 <style lang="scss" scoped>
 .settingIcon {
     margin-left: 10px;
+    cursor: pointer;
 }
 
 .dropdownMenu {
