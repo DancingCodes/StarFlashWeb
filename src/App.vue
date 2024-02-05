@@ -77,16 +77,20 @@ const goArticleList = () => {
             width: 20%;
             height: 100%;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            justify-content: flex-end;
             align-items: flex-end;
 
             .filings {
+                display: flex;
+                align-items: center;
+
                 .filingsCodes {
                     text-decoration: none;
                 }
 
                 .icon {
-                    width: 18px;
+                    width: 14px;
                 }
             }
 
