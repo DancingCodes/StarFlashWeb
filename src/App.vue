@@ -14,16 +14,6 @@
                     <component :is="Component" />
                 </transition>
             </router-view>
-            <div class="right">
-                <div class="filings">
-                    <a class="filingsCodes" href="https://beian.miit.gov.cn/" target="_blank">鲁ICP备2024059990号</a>
-                </div>
-                <div class="filings">
-                    <el-image :src="filings" class="icon" />
-                    <a class="filingsCodes" href="https://beian.mps.gov.cn/#/query/webSearch?code=37010202700167"
-                        rel="noreferrer" target="_blank">鲁公网安备37010202700167</a>
-                </div>
-            </div>
         </div>
     </div>
 </template>
@@ -33,7 +23,6 @@ import star from "@/assets/images/header/star.png"
 import WriteArticle from '@/components/WriteArticle/index.vue'
 import Login from '@/components/Login/index.vue'
 import Setting from '@/components/Setting/index.vue'
-import filings from "@/assets/images/filings/filings.png"
 import { useRouter } from "vue-router";
 const router = useRouter()
 const goArticleList = () => {
@@ -67,35 +56,6 @@ const goArticleList = () => {
     .bodyer {
         flex: 1;
         overflow: hidden;
-        position: relative;
-
-
-        .right {
-            position: absolute;
-            right: 0;
-            top: 0;
-            width: 20%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            align-items: flex-end;
-
-            .filings {
-                display: flex;
-                align-items: center;
-
-                .filingsCodes {
-                    text-decoration: none;
-                }
-
-                .icon {
-                    width: 14px;
-                }
-            }
-
-
-        }
     }
 }
 </style>
