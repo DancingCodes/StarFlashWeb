@@ -19,7 +19,7 @@ export default defineConfig({
     proxy: {
       '/dev-api': {
         target: 'http://localhost:3000',   // 本地服务器
-        // target: 'http://api.moonc.love:3000',   // 线上服务器
+        // target: 'http://starflashapi.moonc.love:3000',   // 线上服务器
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/dev-api/, '')
       },
